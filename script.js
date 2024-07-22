@@ -1,6 +1,23 @@
 const addBtn = document.getElementById('add')
 const heading = document.getElementById('heading')
 
+const e1= document.getElementsByClassName('welcome')[0];
+const e2= document.getElementsByClassName('author')[0];
+let idx=1;
+const text='Welcome To The Notes App'
+function writeText() {
+    e1.innerText = text.slice(0, idx)
+
+    idx++
+
+    if(idx > text.length) {
+        return
+    }
+
+    setTimeout(writeText, 50)
+}
+writeText();
+
 const notes = JSON.parse(localStorage.getItem('notes'))
 
 if (notes) {
